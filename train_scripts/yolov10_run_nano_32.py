@@ -1,5 +1,5 @@
-import sys
 import time
+import torch
 from ultralytics import YOLO
 yaml_files = [
     "global_train.yaml",
@@ -39,8 +39,12 @@ learning_rates = [0.01] #[0.001, 0.0005, 0.0001] #, 0.001, 0.0001]
 lrf1 = 0.01
 
 optimizer = "SGD" #"auto"
-model_names = ["yolov8n"] #["yolov8s", "yolov8m", "yolov8l"]
-device_num = [1]
+model_names = ["yolov10n"] #["yolov8s", "yolov8m", "yolov8l"]
+###### Check if CUDA is available and set the device accordingly
+if torch.cuda.is_available():
+    device_num = [0]  # Use GPU 0 if available
+else:
+    device_num = ['cpu']  # Fallback to CPU if GPU is not available
 image_size = 640
 for yaml_file, dataset in zip(yaml_files, datasets):
     for batch_size in batch_sizes:
@@ -73,3 +77,4 @@ for yaml_file, dataset in zip(yaml_files, datasets):
                 print("#" * 69)
                 print(f"Execution time: {int(hours)}h {int(minutes)}m {seconds:.2f}s")
                 print("#" * 69)
+#2>&1
