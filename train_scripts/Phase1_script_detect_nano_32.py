@@ -9,7 +9,7 @@ images_list = glob.glob(os.path.join(test_dataset_path, "sample/*.jpg"))
 ############################################
 ious = [0.999]
 confs = [0.25, 0.3, 0.2, 0.15]
-size = 960
+size = 640
 ############################################
 #### v8s_16 // v8n_32 // v8n_16 // v8s_32
 model_name = "global_WHOLE_SGD_32_lr_0.01_0.01_yolov8n_640"
