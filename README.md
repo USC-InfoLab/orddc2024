@@ -1,6 +1,3 @@
-# orddc_2024
-
-
 # Optimized Road Damage Detection Challenge ([ORDDC'2024](https://orddc2024.sekilab.global/)) Submission
 
 *The models will be automatically downloaded when you run the script.*
