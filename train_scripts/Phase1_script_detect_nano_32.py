@@ -2,6 +2,7 @@ from ultralytics import YOLO
 import glob
 import os
 import numpy as np
+import torch
 
 test_dataset_path = "./data/"
 images_list = glob.glob(os.path.join(test_dataset_path, "sample/*.jpg"))
@@ -10,6 +11,11 @@ images_list = glob.glob(os.path.join(test_dataset_path, "sample/*.jpg"))
 ious = [0.999]
 confs = [0.25, 0.3, 0.2, 0.15]
 size = 640
+###### Check if CUDA is available and set the device accordingly
+if torch.cuda.is_available():
+    device_num = [0]  # Use GPU 0 if available
+else:
+    device_num = ['cpu']  # Fallback to CPU if GPU is not available
 ############################################
 #### v8s_16 // v8n_32 // v8n_16 // v8s_32
 model_name = "global_WHOLE_SGD_32_lr_0.01_0.01_yolov8n_640"
@@ -36,7 +42,7 @@ for ioui in ious:
             output_file_iou_conf = output_file.replace('.csv', f'_iou{ioui}_conf{confi}_size{size}.csv')
             with open(output_file_iou_conf, "w") as f:
                 for img in images_list:
-                    results = model.predict(source=img, conf=confi, iou=ioui, imgsz=size, augment=True, agnostic_nms=True, save_txt=False, save=False, device=0)
+                    results = model.predict(source=img, conf=confi, iou=ioui, imgsz=size, augment=True, agnostic_nms=True, save_txt=False, save=False, device=device_num)
                     assert len(results) == 1
                     for result in results:
                         boxes = result.boxes.xyxy.cpu().numpy()  
