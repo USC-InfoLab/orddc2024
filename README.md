@@ -125,6 +125,13 @@ python yolov10_run_nano_32.py
 
 `image_size`: The size of the input image (e.g., 640 or 960).
 
+> This script is designed to train YOLOv5 models.
+
+```bash
+cd orddc2024/predictors/yolov5
+python train.py --device cpu --batch-size 16 --data global_train.yaml --img 640 --cfg models/yolov5n_GlobalAB.yaml --weights weights/yolov5n.pt --name yolov5n_640_16 --epochs 200 --optimizer SGD
+```
+
 ### Batch Phase 1 Submission Script
 > This script is designed to generate CSV files for the **Phase 1 submission** using YOLOv8 and YOLOv10 models.
 (You will need to update `test_dataset_path` and `weights_output_pairs` with the paths to the trained models. However, sample files are already located in the train_scripts directory.)
