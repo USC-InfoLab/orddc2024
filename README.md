@@ -117,9 +117,12 @@ python yolov10_run_nano_32.py
 
 `image_size`: The size of the input image (e.g., 640 or 960).
 
+### Batch Phase 1 Submission Script
 > This script is designed to generate CSV files for the **Phase 1 submission** using YOLOv8 and YOLOv10 models.
-(need to update `test_dataset_path` and `weights_output_pairs` with trained model locations)
+(You will need to update `test_dataset_path` and `weights_output_pairs` with the paths to the trained models. However, sample files are already located in the train_scripts directory.)
+You can run the following command:
 ```bash
 cd train_scripts
 python Phase1_script_detect_nano_32.py
 ```
+Submission csv files will be saved under `train_scripts\CSV_results_nano` folder
