@@ -14,21 +14,21 @@ You can either unzip the provided ZIP file or clone the repository from GitHub.
 **Option 1: Unzip the ZIP File**
 
 ```bash
-unzip orddc_2024.zip -d ./
+unzip orddc2024.zip -d ./
 cd orddc_2024
 ```
 **Option 2: Clone from GitHub**
 ```bash
-git clone https://github.com/Jooyoung01/orddc_2024.git
-cd orddc_2024
+git clone https://github.com/USC-InfoLab/orddc2024.git
+cd orddc2024
 ```
 
 ### 2. Create and Activate the Conda Environment
 
 Create a new Conda environment named orddc_2024 with **Python 3.10** and activate it:
 ```bash
-conda create -n orddc_2024 python=3.10 -y
-conda activate orddc_2024
+conda create -n orddc2024 python=3.10 -y
+conda activate orddc2024
 ```
 
 ### 3. Install the required packages

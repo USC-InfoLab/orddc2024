@@ -54,3 +54,5 @@ dependencies = [
         'ultralytics-thop==2.0.5',
         'urllib3==2.2.2',
 ]
+[tool.setuptools]
+packages = ["orddc2024"]
