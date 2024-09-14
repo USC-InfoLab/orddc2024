@@ -4,6 +4,7 @@ import yaml
 import sys
 import subprocess
 import shutil
+import argparse
 from datetime import datetime
 
 from ensemble_boxes import weighted_boxes_fusion, nms, non_maximum_weighted, soft_nms
@@ -168,13 +169,16 @@ def main(yaml_file, images_path, output_csv):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 3:
-        print("Usage: python inference_script_v2.py <images_path> <output_csv>")
-        sys.exit(1)
+    parser = argparse.ArgumentParser(description='Inference script for YOLO models with YAML configuration.')
+    parser.add_argument('images_path', type=str, help='Path to the directory with images.')
+    parser.add_argument('output_csv', type=str, help='Output CSV file to save predictions.')
+    parser.add_argument('--yaml', type=str, default='./model_ph1.yaml', help='Path to the YAML configuration file.')
 
-    yaml_file = "./model_ph2.yaml"
-    images_path = sys.argv[1]
-    output_csv = sys.argv[2]
+    args = parser.parse_args()
+
+    yaml_file = args.yaml
+    images_path = args.images_path
+    output_csv = args.output_csv
     
     ## Check if the models directory exists, if not download the models
     if not os.path.exists('./models_ph2'):
