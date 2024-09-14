@@ -3,8 +3,8 @@ import glob
 import os
 import numpy as np
 
-test_dataset_path = "./orddc/team_usc/datasets/split_dataset/"
-images_list = glob.glob(os.path.join(test_dataset_path, "test/images/*.jpg"))
+test_dataset_path = "./data/"
+images_list = glob.glob(os.path.join(test_dataset_path, "sample/*.jpg"))
 
 ############################################
 ious = [0.999]
@@ -12,7 +12,7 @@ confs = [0.25, 0.3, 0.2, 0.15]
 size = 960
 ############################################
 #### v8s_16 // v8n_32 // v8n_16 // v8s_32
-model_name = "global_WHOLE_SGD_32_lr_0.01_0.01_yolov8n_960"
+model_name = "global_WHOLE_SGD_32_lr_0.01_0.01_yolov8n_640"
 csv_folder_name = "./CSV_results_nano"
 csv_subfolder = f"{csv_folder_name}/{model_name}"
 
@@ -21,10 +21,10 @@ os.makedirs(csv_subfolder, exist_ok=True)
 ############################################
 
 weights_output_pairs = [
-    (f"/runs/detect/global_WHOLE_SGD_32_lr_0.01_0.01_yolov8n_960/weights/last.pt", f"./{csv_folder_name}/{model_name}/{model_name}_last.csv"),
+    (f"/runs/detect/global_WHOLE_SGD_32_lr_0.01_0.01_yolov8n_640/weights/last.pt", f"./{csv_folder_name}/{model_name}/{model_name}_last.csv"),
 ]
 weights_output_pairs += [
-    (f"/runs/detect/global_WHOLE_SGD_32_lr_0.01_0.01_yolov8n_960/weights/epoch{epoch}.pt", f"./{csv_folder_name}/{model_name}/{model_name}_epoch{epoch}.csv")
+    (f"/runs/detect/global_WHOLE_SGD_32_lr_0.01_0.01_yolov8n_640/weights/epoch{epoch}.pt", f"./{csv_folder_name}/{model_name}/{model_name}_epoch{epoch}.csv")
     for epoch in [175,150,125,100,75,50,25] #[130, 150, 180, 100, 80, 60, 50, 30]
 ]
 

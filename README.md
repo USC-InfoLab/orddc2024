@@ -90,18 +90,20 @@ python inference_script_v2_Phase2.py ./images ./output_csv_file_Phase2.csv
 
 ```bash
 cd train_scripts
-python yolo8_run_nano_32.py
+python yolov8_run_nano_32.py
 ```
 
 > This script is designed to train YOLOv10 models.
 ```bash
 cd train_scripts
-python yolo10_run_nano_32.py
+python yolov10_run_nano_32.py
 ```
 
 ### Training Configuration: The script uses predefined configurations for training, which include:
 
 `yaml_files`: The list of configuration files that define the datasets and their specific settings (e.g., global_train.yaml).
+
+`model_names`: YOLOv8 model names to be used for training (e.g., yolov8n).
 
 `datasets`: Corresponding names for the datasets being used.
 
@@ -111,9 +113,7 @@ python yolo10_run_nano_32.py
 
 `optimizer`: Optimizer used for training (e.g., SGD).
 
-`model_names`: YOLOv8 model names to be used for training (e.g., yolov8n).
-
-`device_num`: GPU device number for training (e.g., [1]).
+`device_num`: GPU device number for training (e.g., [0]).
 
 `image_size`: The size of the input image (e.g., 640 or 960).
 

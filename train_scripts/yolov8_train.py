@@ -33,13 +33,13 @@ datasets = [
     # "United_States"
 ]
 
-batch_sizes = [32]
+batch_sizes = [16,32]
 
 learning_rates = [0.01] #[0.001, 0.0005, 0.0001] #, 0.001, 0.0001]
 lrf1 = 0.01
 
-optimizer = "SGD" #"auto"
-model_names = ["yolov10n"] #["yolov8s", "yolov8m", "yolov8l"]
+optimizer = "SGD" # "auto"
+model_names = ["yolov8n"] # ["yolov8s", "yolov8m", "yolov8l"]
 ###### Check if CUDA is available and set the device accordingly
 if torch.cuda.is_available():
     device_num = [0]  # Use GPU 0 if available
@@ -77,4 +77,3 @@ for yaml_file, dataset in zip(yaml_files, datasets):
                 print("#" * 69)
                 print(f"Execution time: {int(hours)}h {int(minutes)}m {seconds:.2f}s")
                 print("#" * 69)
-#2>&1
