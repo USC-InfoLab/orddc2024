@@ -6,20 +6,19 @@
 
 ### 1. Download the Project
 
-You can either unzip the provided ZIP file or clone the repository from GitHub.
+You can either clone the repository from GitHub or unzip the provided ZIP file.
 
-**Option 1: Unzip the ZIP File**
-
-```bash
-unzip orddc2024.zip -d ./
-cd orddc_2024
-```
-
-**Option 2: Clone from GitHub**
+**Option 1: Clone from GitHub**
 
 ```bash
 git clone https://github.com/USC-InfoLab/orddc2024.git
 cd orddc2024
+```
+**Option 2: Unzip the ZIP File**
+
+```bash
+unzip orddc2024.zip -d ./
+cd orddc_2024
 ```
 
 ### 2. Create and Activate the Conda Environment
