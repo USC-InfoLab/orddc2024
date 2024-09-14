@@ -39,7 +39,7 @@ pip install -r requirements.txt
 ## Detection / Submission
 
 Several YOLOv5, YOLOv8, and YOLOv10 models were trained individually, 
-and the best results were obtained using an **ensemble model** in Phases 1 and 2.
+and the best results were obtained using **ensemble model**s in Phases 1 and 2.
 
 Run the inference script using one of the following commands, depending on the phase you are working on.
 
