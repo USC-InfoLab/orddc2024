@@ -54,7 +54,7 @@ Phase1 Best Score Output: ./Phase1_output_Approach23_Conf_0.3.csv
 #### Phase 1. submission results (F1-Score)
 | Model(img_size)      | Nano | Small | Medium | Large | XLarge |
 |:------------:|:------:|:-------:|:--------:|:-------:|:--------:|
-| YOLOv5(640)     |  ✓(tiny)   |   ✓   |   ✓    |   ✓   |   ✓    |
+| YOLOv5(640)     |  ✓   |   ✓   |   ✓    |   ✓   |   ✓    |
 | YOLOv8(640)     |  ✓   |   ✓   |   ✓    |   ✓   |   ✓    |
 | YOLOv10(640)    |  ✓   |   ✓   |   ✓    |   ✓   |   ✓    |
 > Phase 1 Best Score:
