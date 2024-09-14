@@ -4,8 +4,8 @@ import os
 import numpy as np
 import torch
 
-test_dataset_path = "./data/"
-images_list = glob.glob(os.path.join(test_dataset_path, "sample/*.jpg"))
+test_dataset_path = "./data/sample"
+images_list = glob.glob(os.path.join(test_dataset_path, "test/*.jpg"))
 
 ############################################
 ious = [0.999]
