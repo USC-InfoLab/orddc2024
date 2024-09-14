@@ -98,13 +98,13 @@ python inference_script_v2_Phase2.py ./train_scripts/data/sample/test ./output_c
 
 ```bash
 cd train_scripts
-python yolov8_run_nano_32.py
+python yolov8_train.py
 ```
 
 > This script is designed to train YOLOv10 models.
 ```bash
 cd train_scripts
-python yolov10_run_nano_32.py
+python yolov10_train.py
 ```
 
 ### Training Configuration: The script uses predefined configurations for training, which include:
