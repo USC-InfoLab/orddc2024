@@ -95,16 +95,21 @@ python inference_script_v2_Phase2.py ./train_scripts/data/sample/test ./output_c
 ## Train
 
 > This script is designed to train YOLOv8 models using various configurations specified in the script. It automates the process of running multiple experiments by looping through different datasets, batch sizes, learning rates, and model types. The script outputs the time taken for each training session and saves the trained model at specified intervals.
-
+[Note: Please make sure to correctly modify the path: section in global_train.yaml under the train_scripts folder, or run the example with --test flag.]
 ```bash
 cd train_scripts
 python yolov8_train.py
+# Example:
+python yolov8_train.py --test
 ```
 
 > This script is designed to train YOLOv10 models.
+[Note: Please make sure to correctly modify the path: section in global_train.yaml under the train_scripts folder, or run the example with --test flag.]
 ```bash
 cd train_scripts
 python yolov10_train.py
+# Example:
+python yolov10_train.py --test
 ```
 
 ### Training Configuration: The script uses predefined configurations for training, which include:
