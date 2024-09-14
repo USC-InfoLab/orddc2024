@@ -17,7 +17,9 @@ You can either unzip the provided ZIP file or clone the repository from GitHub.
 unzip orddc2024.zip -d ./
 cd orddc_2024
 ```
+
 **Option 2: Clone from GitHub**
+
 ```bash
 git clone https://github.com/USC-InfoLab/orddc2024.git
 cd orddc2024
