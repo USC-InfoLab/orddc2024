@@ -1,0 +1,20 @@
+models:
+  yolov8:
+    - weight: './models_ph2/v8n_175_16_960.pt'
+      img_size: 640
+      conf: 0.25
+      iou: 0.999
+      agnostic_nms: True
+      augment: True
+
+  yolov5:
+    - weight: './models_ph2/v5s_best_640_025.pt'
+      img_size: 640
+      conf: 0.25
+      iou: 0.999
+      agnostic_nms: True
+      augment: True
+      
+# images_path: './src/data/test/smaller'
+#images_path: ''
+#output_csv: ''
