@@ -30,8 +30,8 @@ weights_output_pairs = [
     (f"./runs/detect/global_WHOLE_SGD_32_lr_0.01_0.01_yolov8n_640/weights/last.pt", f"./{csv_folder_name}/{model_name}/{model_name}_last.csv"),
 ]
 weights_output_pairs += [
-    (f"./runs/detect/global_WHOLE_SGD_32_lr_0.01_0.01_yolov8n_640/weights/epoch{epoch}.pt", f"./{csv_folder_name}/{model_name}/{model_name}_epoch{epoch}.csv")
-    for epoch in [175,150,125,100,75,50,25] #[130, 150, 180, 100, 80, 60, 50, 30]
+    # (f"./runs/detect/global_WHOLE_SGD_32_lr_0.01_0.01_yolov8n_640/weights/epoch{epoch}.pt", f"./{csv_folder_name}/{model_name}/{model_name}_epoch{epoch}.csv")
+    # for epoch in [175,150,125,100,75,50,25] #[130, 150, 180, 100, 80, 60, 50, 30]
 ]
 
 ############################################
