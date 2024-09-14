@@ -1,0 +1,9 @@
+names:
+  0: D00
+  1: D10
+  2: D20
+  3: D40
+nc: 4
+path: ./orddc/team_usc/datasets/whole_dataset
+train: train/
+val: val/

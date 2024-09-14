@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 dynamic = ["version"]
-name = "orddc_2024"
+name = "orddc2024"
 dependencies = [
         'beautifulsoup4==4.12.3',
         'certifi==2024.7.4',
@@ -54,6 +54,3 @@ dependencies = [
         'ultralytics-thop==2.0.5',
         'urllib3==2.2.2',
 ]
-
-#[project.optional-dependencies]
-#dev = ['ExtraExample @ git+ssh://git@github.com/example_org/ExtraExample.git']
