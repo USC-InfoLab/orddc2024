@@ -46,6 +46,9 @@ pip install -r requirements.txt
 > Execute the Phase 1 inference script with:
 ```bash
 python inference_script_v2_Phase1.py ./images ./output_csv_file_Phase1.csv
+
+# Example:
+python inference_script_v1_Phase2.py ./train_scripts/data/sample/ ./output_csv_file_Phase1.csv
 ```
 Output: ./Phase1_output_Approach23_Conf_0.3.csv
 * Note: When running **inference_script_v2_Phase1.py**, the CSV file **[Phase1_output_Approach23_Conf_0.3.csv](https://drive.google.com/file/d/1a-SuWHjl0WF_upPrHoaP_7UGwq0Qwwe3/view?usp=sharing)** will be downloaded along with the models.
@@ -66,6 +69,9 @@ Output: ./Phase1_output_Approach23_Conf_0.3.csv
 > Execute the Phase 2 inference script with:
 ```bash
 python inference_script_v2_Phase2.py ./images ./output_csv_file_Phase2.csv
+
+# Example:
+python inference_script_v2_Phase2.py ./train_scripts/data/sample/ ./output_csv_file_Phase2.csv
 ```
 #### Phase 2. Submission Results (F1-Score and Inference Speed)
 
