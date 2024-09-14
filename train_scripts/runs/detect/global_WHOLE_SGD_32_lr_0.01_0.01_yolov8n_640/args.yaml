@@ -1,7 +1,7 @@
 task: detect
 mode: train
 model: yolov8n.pt
-data: /home/users/alfarrar/orddc/team_usc/datasets/whole_dataset/global_train.yaml
+data: global_train.yaml
 epochs: 200
 time: null
 patience: 0
