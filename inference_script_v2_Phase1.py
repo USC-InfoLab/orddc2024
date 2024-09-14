@@ -177,8 +177,8 @@ if __name__ == "__main__":
     output_csv = sys.argv[2]
     
     ## Check if the models directory exists, if not download the models
-    if not os.path.exists('./models_ph1'):
-        print("Models directory './models_ph1' does not exist.")
+    if not os.path.exists('./model_ph1'):
+        print("Models directory './model_ph1' does not exist.")
         download_models()
         
     main(yaml_file, images_path, output_csv)

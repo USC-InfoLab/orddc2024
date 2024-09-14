@@ -172,7 +172,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Inference script for YOLO models with YAML configuration.')
     parser.add_argument('images_path', type=str, help='Path to the directory with images.')
     parser.add_argument('output_csv', type=str, help='Output CSV file to save predictions.')
-    parser.add_argument('--yaml', type=str, default='./model_ph1.yaml', help='Path to the YAML configuration file.')
+    parser.add_argument('--yaml', type=str, default='./model_ph2.yaml', help='Path to the YAML configuration file.')
 
     args = parser.parse_args()
 
@@ -181,8 +181,8 @@ if __name__ == "__main__":
     output_csv = args.output_csv
     
     ## Check if the models directory exists, if not download the models
-    if not os.path.exists('./models_ph2'):
-        print("Models directory './models_ph2' does not exist.")
+    if not os.path.exists('./model_ph2'):
+        print("Models directory './model_ph2' does not exist.")
         download_models()
         
     main(yaml_file, images_path, output_csv)
