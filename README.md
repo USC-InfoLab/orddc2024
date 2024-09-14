@@ -38,7 +38,9 @@ pip install -r requirements.txt
 
 ## Detection / Submission
 
-1. Run the inference script using one of the following commands, depending on the phase you are working on.
+Several YOLOv5, YOLOv8, and YOLOv10 models were trained individually, and results were obtained using an ensemble model in Phases 1 and 2.
+
+Run the inference script using one of the following commands, depending on the phase you are working on.
 
 ### For Phase 1 Best Result
 > Execute the Phase 1 inference script with:
