@@ -4,6 +4,6 @@ names:
   2: D20
   3: D40
 nc: 4
-path: ../../train_scripts/data/sample
+path: ../../../train_scripts/data/sample
 train: train/
 val: val/
