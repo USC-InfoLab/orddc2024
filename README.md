@@ -147,7 +147,7 @@ python Phase1_script_detect_nano_32.py
 Submission csv files will be saved under `train_scripts\CSV_results_nano` folder
 
 ## Data Preprocessing Guide
-> You can download the data from [How to access the data](https://figshare.com/articles/dataset/RDD2022_-_The_multi-national_Road_Damage_Dataset_released_through_CRDDC_2022/21431547/1), and use DataPreprocessingGuide.ipynb to check the statistics of the dataset and convert XML annotations to YOLO labeling (txt) for YOLO training
+> You can download the data from [How to access the data](https://figshare.com/articles/dataset/RDD2022_-_The_multi-national_Road_Damage_Dataset_released_through_CRDDC_2022/21431547/1), and use `DataPreprocessingGuide.ipynb` to check the statistics of the dataset and convert XML annotations to YOLO labeling (txt) for YOLO training
 
 ```bash
 DataPreprocessingGuide.ipynb
