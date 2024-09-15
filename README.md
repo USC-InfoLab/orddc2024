@@ -51,7 +51,7 @@ python inference_script_v2_Phase1.py ./images ./output_csv_file_Phase1.csv
 # Example:
 python inference_script_v2_Phase1.py ./train_scripts/data/sample/test ./output_csv_file_Phase1.csv
 ```
-`./images` refers to the path of the test dataset, following the same structure as required for submission(inference_script_v2.py guideline)
+`./images` refers to the path of the test dataset, following the same structure as required for submission (inference_script_v2.py guideline)
 
 Phase1 Best Score Output: ./Phase1_output_Approach23_Conf_0.3.csv
 * Note: When running **inference_script_v2_Phase1.py**, the CSV file **[Phase1_output_Approach23_Conf_0.3.csv](https://drive.google.com/file/d/1a-SuWHjl0WF_upPrHoaP_7UGwq0Qwwe3/view?usp=sharing)** will be downloaded along with the models.
@@ -76,7 +76,7 @@ python inference_script_v2_Phase2.py ./images ./output_csv_file_Phase2.csv
 # Example:
 python inference_script_v2_Phase2.py ./train_scripts/data/sample/test ./output_csv_file_Phase2.csv
 ```
-`./images` refers to the path of the test dataset, following the same structure as required for submission(inference_script_v2.py guideline)
+`./images` refers to the path of the test dataset, following the same structure as required for submission (inference_script_v2.py guideline)
 
 #### Phase 2. Submission Results (F1-Score and Inference Speed)
 
