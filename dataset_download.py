@@ -60,7 +60,6 @@ def convert_to_yolo_format(bbox, img_width, img_height):
 def process_dataset(dataset, base_path, class_mapping):
     xml_folder_path = os.path.join(base_path, dataset, 'train', 'annotations', 'xmls')
     labels_folder_path = os.path.join(base_path, dataset, 'train', 'labels')
-
     os.makedirs(labels_folder_path, exist_ok=True)
 
     for root, dirs, files in os.walk(xml_folder_path):
@@ -120,13 +119,14 @@ def create_location_txt(datasets,base_path,class_mapping):
         print(f"Processing dataset: {dataset}")
         images_folder_path = os.path.join(base_path, dataset, 'train', 'images')
         all_images = [os.path.join(images_folder_path, file) for file in os.listdir(images_folder_path) if file.endswith(('.jpg', '.png', '.jpeg'))]
+        all_images_absolute = [os.path.abspath(image) for image in all_images]
         # Split the images into train+val and test (90:10 ratio)
-        train_images, val_images = train_test_split(all_images, test_size=0.1, random_state=42)
+        train_images, val_images = train_test_split(all_images_absolute, test_size=0.1, random_state=42)
         # Parse labels and calculate class distribution
-        train_class_counter = parse_labels(base_path, class_mapping,train_images, dataset)
-        val_class_counter = parse_labels(base_path, class_mapping,val_images, dataset)
-        train_images_relative = [os.path.relpath(image, os.path.join(base_path, dataset)).replace("\\", "/").replace(f"{dataset}/", "") for image in train_images]
-        val_images_relative = [os.path.relpath(image, os.path.join(base_path, dataset)).replace("\\", "/").replace(f"{dataset}/", "") for image in val_images]
+        train_class_counter = parse_labels(base_path, class_mapping, train_images, dataset)
+        val_class_counter = parse_labels(base_path, class_mapping, val_images, dataset)
+        train_images_absolute = [image.replace("\\", "/") for image in train_images]
+        val_images_absolute = [image.replace("\\", "/") for image in val_images]
 
         stats.append({
             'Dataset': dataset,
@@ -147,11 +147,11 @@ def create_location_txt(datasets,base_path,class_mapping):
         val_txt_path = os.path.join(base_path, dataset, 'val.txt')
 
         with open(train_txt_path, 'w') as f:
-            for image in train_images_relative:
+            for image in train_images_absolute:
                 f.write(f"{image}\n")
 
         with open(val_txt_path, 'w') as f:
-            for image in val_images_relative:
+            for image in val_images_absolute:
                 f.write(f"{image}\n")
 
         print(f"Finished processing dataset: {dataset}")
@@ -171,8 +171,8 @@ def concatenate_txt_files(datasets,base_path,file_type):
                 line_count = len(lines)
                 total_lines += line_count
                 for line in lines:
-                    updated_line = os.path.join(dataset, line.lstrip("./")).replace("\\", "/")
-                    concatenated_lines.append(updated_line)
+                    absolute_line = line.strip()
+                    concatenated_lines.append(f"{absolute_line}\n")
                 print(f"{file_path}: {line_count} lines")
 
     output_file_path = os.path.join(base_path, f'glob_{file_type}')

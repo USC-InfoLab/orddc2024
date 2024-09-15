@@ -15,25 +15,28 @@ def update_yaml_paths(yaml_file):
     with open(yaml_file, 'w') as file:
         yaml.safe_dump(yaml_data, file)
 
+def update_yaml_paths_dataset(yaml_file):
+    current_dir = os.getcwd()
+    parent_dir = os.path.abspath(os.path.join(current_dir, "..", "RDD2022"))
+    data_root = parent_dir
+    with open(yaml_file, 'r') as file:
+        yaml_data = yaml.safe_load(file)
+    yaml_data['path'] = data_root
+    yaml_data['train'] = 'glob_train.txt'
+    yaml_data['val'] = 'glob_val.txt'
+    with open(yaml_file, 'w') as file:
+        yaml.safe_dump(yaml_data, file)
+
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--test', action='store_true', help="Update YAML paths and run the training.")
+    parser.add_argument('--dataset', action='store_true', help="Update YAML paths and run the training.")
     return parser.parse_args()
 def main():
     args = parse_args()
 
     yaml_files = [
         "global_train.yaml",
-        # "global_train_whole_pathFix.yaml",
-        # "global_train_whole.yaml",
-        # "global_train811.yaml",
-        # "train_China_Drone_811.yaml",
-        # "train_China_MotorBike_811.yaml",
-        # "train_Czech_811.yaml",
-        # "train_India_811.yaml",
-        # "train_Japan_811.yaml",
-        # "train_Norway_811.yaml",
-        # "train_United_States_811.yaml",
         # "train_China_Drone.yaml",
         # "train_China_MotorBike.yaml",
         # "train_Czech.yaml",
@@ -54,15 +57,17 @@ def main():
         # "United_States"
     ]
 
-    if args.test:
+    if args.dataset:
+        yaml_files = [os.path.abspath(os.path.join('..', 'RDD2022', y)) for y in yaml_files]
+        update_yaml_paths_dataset(yaml_files[0])
+    elif  args.test:
         update_yaml_paths('global_train.yaml')
-
+        
     batch_sizes = [16,32]
-
-    learning_rates = [0.01] #[0.001, 0.0005, 0.0001] #, 0.001, 0.0001]
+    learning_rates = [0.01] #[0.001, 0.0005, 0.0001]
     lrf1 = 0.01
 
-    optimizer = "SGD" # "auto"
+    optimizer = "SGD" #"auto"
     model_names = ["yolov8n"] # ["yolov8s", "yolov8m", "yolov8l"]
     ###### Check if CUDA is available and set the device accordingly
     if torch.cuda.is_available():
