@@ -36,6 +36,21 @@ Install all the required packages using the requirements.txt file:
 pip install -r requirements.txt
 ```
 
+### 4. Download and Preprocess Dataset
+
+Download and Preprocess RDD2022 dataset with:
+```bash
+python dataset_download.py
+```
+or You can download the data from [How to access the data](https://figshare.com/articles/dataset/RDD2022_-_The_multi-national_Road_Damage_Dataset_released_through_CRDDC_2022/21431547/1), and use `DataPreprocessingGuide.ipynb` to check the statistics of the dataset and convert XML annotations to YOLO labeling (txt) for YOLO training
+Use this Jupyter notebook:
+```bash
+DataPreprocessingGuide.ipynb
+```
+
+
+
+
 ## Detection / Submission
 
 Several YOLOv5, YOLOv8, and YOLOv10 models were trained individually, 
@@ -104,6 +119,8 @@ cd train_scripts
 python yolov8_train.py
 # Example:
 python yolov8_train.py --test
+# Example2 (If you downloaded and preprocessed the dataset using dataset_download.py or DataPreprocessingGuide.ipynb):
+python yolov8_train.py --data
 ```
 
 > This script is designed to train YOLOv10 models.
@@ -113,6 +130,8 @@ cd train_scripts
 python yolov10_train.py
 # Example:
 python yolov10_train.py --test
+# Example2 (If you downloaded and preprocessed the dataset using dataset_download.py or DataPreprocessingGuide.ipynb):
+python yolov8_train.py --data
 ```
 
 ### Training Configuration: The script uses predefined configurations for training, which include:
@@ -150,9 +169,3 @@ python Phase1_script_detect_nano_32.py
 ```
 Submission csv files will be saved under `train_scripts\CSV_results_nano` folder
 
-## Data Preprocessing Guide
-> You can download the data from [How to access the data](https://figshare.com/articles/dataset/RDD2022_-_The_multi-national_Road_Damage_Dataset_released_through_CRDDC_2022/21431547/1), and use `DataPreprocessingGuide.ipynb` to check the statistics of the dataset and convert XML annotations to YOLO labeling (txt) for YOLO training
-
-```bash
-DataPreprocessingGuide.ipynb
-```
