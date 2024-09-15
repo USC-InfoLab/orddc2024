@@ -214,6 +214,78 @@ def create_global_yaml(base_path):
     with open(yaml_file_path, 'w') as f:
         yaml.dump(data, f, default_flow_style=False)
     print(f"Created {yaml_file_path}")
+### Full Dataset Training with Single Image Validation
+def create_total_txt_files(datasets, base_path):
+    total_train_images = []
+    total_val_images = []
+
+    for dataset in datasets:
+        images_folder_path = os.path.join(base_path, dataset, 'train', 'images')
+        all_images = [os.path.join(images_folder_path, file)
+                      for file in os.listdir(images_folder_path)
+                      if file.endswith(('.jpg', '.png', '.jpeg'))]
+        all_images_absolute = [os.path.abspath(image) for image in all_images]
+
+        train_images = all_images_absolute[:-1]
+        val_images = [all_images_absolute[-1]]
+
+        train_txt_path = os.path.join(base_path, dataset, 'total_train.txt')
+        val_txt_path = os.path.join(base_path, dataset, 'total_val.txt')
+
+        with open(train_txt_path, 'w') as f:
+            for image in train_images:
+                f.write(f"{image.replace('\\', '/')}\n")
+
+        with open(val_txt_path, 'w') as f:
+            f.write(f"{val_images[0].replace('\\', '/')}\n")
+
+        total_train_images.extend(train_images)
+        total_val_images.extend(val_images)
+
+    total_train_txt_path = os.path.join(base_path, 'total_train.txt')
+    total_val_txt_path = os.path.join(base_path, 'total_val.txt')
+
+    with open(total_train_txt_path, 'w') as f:
+        for image in total_train_images:
+            f.write(f"{image.replace('\\', '/')}\n")
+
+    with open(total_val_txt_path, 'w') as f:
+        for image in total_val_images:
+            f.write(f"{image.replace('\\', '/')}\n")
+
+def create_total_yaml_files(datasets, base_path):
+    data_global = {
+        'train': './total_train.txt',
+        'val': './total_val.txt',
+        'nc': 4,
+        'names': {
+            0: 'D00',
+            1: 'D10',
+            2: 'D20',
+            3: 'D40'
+        }
+    }
+    yaml_file_path_global = os.path.join(base_path, 'total_global_train.yaml')
+    with open(yaml_file_path_global, 'w') as f:
+        yaml.dump(data_global, f, default_flow_style=False)
+    print(f"Created {yaml_file_path_global}")
+
+    for dataset in datasets:
+        data_dataset = {
+            'train': f'./{dataset}/total_train.txt',
+            'val': f'./{dataset}/total_val.txt',
+            'nc': 4,
+            'names': {
+                0: 'D00',
+                1: 'D10',
+                2: 'D20',
+                3: 'D40'
+            }
+        }
+        yaml_file_path_dataset = os.path.join(base_path, dataset, f'total_{dataset}_train.yaml')
+        with open(yaml_file_path_dataset, 'w') as f:
+            yaml.dump(data_dataset, f, default_flow_style=False)
+        print(f"Created {yaml_file_path_dataset}")
 
 def main():
     ###Step 0: Download Dataset
@@ -243,5 +315,9 @@ def main():
     create_global_yaml(base_path)
     for dataset in datasets:
         create_dataset_yaml(base_path, dataset)
+    ### Full Dataset Training with Single Image Validation
+    create_total_txt_files(datasets, base_path)
+    create_total_yaml_files(datasets, base_path)
+    
 if __name__ == "__main__":
     main()
