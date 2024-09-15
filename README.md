@@ -120,7 +120,7 @@ python yolov8_train.py
 # Example:
 python yolov8_train.py --test
 # Example2 (If you downloaded and preprocessed the dataset using dataset_download.py or DataPreprocessingGuide.ipynb):
-python yolov8_train.py --data
+python yolov8_train.py --dataset
 ```
 
 > This script is designed to train YOLOv10 models.
@@ -131,7 +131,7 @@ python yolov10_train.py
 # Example:
 python yolov10_train.py --test
 # Example2 (If you downloaded and preprocessed the dataset using dataset_download.py or DataPreprocessingGuide.ipynb):
-python yolov8_train.py --data
+python yolov8_train.py --dataset
 ```
 
 ### Training Configuration: The script uses predefined configurations for training, which include:
