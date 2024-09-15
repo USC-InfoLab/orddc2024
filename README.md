@@ -35,6 +35,10 @@ Install all the required packages using the requirements.txt file:
 ```bash
 pip install -r requirements.txt
 ```
+Alternatively, to install the PyTorch GPU version (CUDA 12.1), use the following command:
+```bash
+pip install -r requirements_gpu.txt
+```
 
 ### 4. Download and Preprocess Dataset
 
