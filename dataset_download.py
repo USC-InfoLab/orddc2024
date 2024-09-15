@@ -216,15 +216,14 @@ def create_global_yaml(base_path):
     print(f"Created {yaml_file_path}")
 
 def main():
-    # Download Dataset
+    ###Step 0: Download Dataset
     url = 'https://figshare.com/ndownloader/files/38030910'
     dest_folder = './'
     zip_filename = 'RDD2022_released_through_CRDDC2022.zip'
     zip_file_path = download_file(url, dest_folder, zip_filename)
     if zip_file_path:
         unzip_file(zip_file_path)
-
-    # Unzip and Preprocessing Dataset
+    ###Step 1: Unzip and Preprocessing Dataset
     base_path = './RDD2022'
     datasets = ['China_Drone', 'China_MotorBike', 'Czech', 'India', 'Japan', 'Norway', 'United_States']
     class_mapping = {'D00': 0, 'D10': 1, 'D20': 2, 'D40': 3}
@@ -242,6 +241,7 @@ def main():
     ### Step 4: Create YAML file
     ## Create global YAML file
     create_global_yaml(base_path)
-    create_dataset_yaml(base_path, dataset)
+    for dataset in datasets:
+        create_dataset_yaml(base_path, dataset)
 if __name__ == "__main__":
     main()
