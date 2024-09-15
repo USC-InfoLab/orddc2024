@@ -46,13 +46,11 @@ Download and Preprocess RDD2022 dataset with:
 ```bash
 python dataset_download.py
 ```
-or You can download the data from [How to access the data](https://figshare.com/articles/dataset/RDD2022_-_The_multi-national_Road_Damage_Dataset_released_through_CRDDC_2022/21431547/1), and use `DataPreprocessingGuide.ipynb` to check the statistics of the dataset and convert XML annotations to YOLO labeling (txt) for YOLO training
+Alternatively, you can manually download the dataset from [How to access the data](https://figshare.com/articles/dataset/RDD2022_-_The_multi-national_Road_Damage_Dataset_released_through_CRDDC_2022/21431547/1), and use `DataPreprocessingGuide.ipynb` to check the statistics of the dataset and convert XML annotations to YOLO labeling (txt) for YOLO training
 Use this Jupyter notebook:
 ```bash
 DataPreprocessingGuide.ipynb
 ```
-
-
 
 
 ## Detection / Submission
