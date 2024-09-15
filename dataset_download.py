@@ -234,10 +234,12 @@ def create_total_txt_files(datasets, base_path):
 
         with open(train_txt_path, 'w') as f:
             for image in train_images:
-                f.write(f"{image.replace('\\', '/')}\n")
+                image = image.replace('\\', '/')
+                f.write(f"{image}\n")
 
         with open(val_txt_path, 'w') as f:
-            f.write(f"{val_images[0].replace('\\', '/')}\n")
+            image = val_images[0].replace('\\', '/')
+            f.write(f"{image}\n")
 
         total_train_images.extend(train_images)
         total_val_images.extend(val_images)
@@ -247,11 +249,13 @@ def create_total_txt_files(datasets, base_path):
 
     with open(total_train_txt_path, 'w') as f:
         for image in total_train_images:
-            f.write(f"{image.replace('\\', '/')}\n")
+            image = image.replace('\\', '/')
+            f.write(f"{image}\n")
 
     with open(total_val_txt_path, 'w') as f:
         for image in total_val_images:
-            f.write(f"{image.replace('\\', '/')}\n")
+            image = image.replace('\\', '/')
+            f.write(f"{image}\n")
 
 def create_total_yaml_files(datasets, base_path):
     data_global = {
@@ -288,34 +292,34 @@ def create_total_yaml_files(datasets, base_path):
         print(f"Created {yaml_file_path_dataset}")
 
 def main():
-    ###Step 0: Download Dataset
-    url = 'https://figshare.com/ndownloader/files/38030910'
-    dest_folder = './'
-    zip_filename = 'RDD2022_released_through_CRDDC2022.zip'
-    zip_file_path = download_file(url, dest_folder, zip_filename)
-    if zip_file_path:
-        unzip_file(zip_file_path)
-    ###Step 1: Unzip and Preprocessing Dataset
+    # ###Step 0: Download Dataset
+    # url = 'https://figshare.com/ndownloader/files/38030910'
+    # dest_folder = './'
+    # zip_filename = 'RDD2022_released_through_CRDDC2022.zip'
+    # zip_file_path = download_file(url, dest_folder, zip_filename)
+    # if zip_file_path:
+    #     unzip_file(zip_file_path)
+    # ###Step 1: Unzip and Preprocessing Dataset
     base_path = './RDD2022'
     datasets = ['China_Drone', 'China_MotorBike', 'Czech', 'India', 'Japan', 'Norway', 'United_States']
     class_mapping = {'D00': 0, 'D10': 1, 'D20': 2, 'D40': 3}
-    file_types = ['train.txt', 'val.txt']
-    unzip_datasets(datasets, base_path)
-    ###Step 2: Convert XML annotations to YOLO format
-    # Process each dataset for labels [XML to YOLO txt]
-    for dataset in datasets:
-        process_dataset(dataset, base_path, class_mapping)
-    create_location_txt(datasets,base_path,class_mapping)
-    ### Step 3: Create txt files for trining
-    ## Create txt Location files
-    for file_type in file_types:
-        concatenate_txt_files(datasets,base_path,file_type)
-    ### Step 4: Create YAML file
-    ## Create global YAML file
-    create_global_yaml(base_path)
-    for dataset in datasets:
-        create_dataset_yaml(base_path, dataset)
-    ### Full Dataset Training with Single Image Validation
+    # file_types = ['train.txt', 'val.txt']
+    # unzip_datasets(datasets, base_path)
+    # ###Step 2: Convert XML annotations to YOLO format
+    # # Process each dataset for labels [XML to YOLO txt]
+    # for dataset in datasets:
+    #     process_dataset(dataset, base_path, class_mapping)
+    # create_location_txt(datasets,base_path,class_mapping)
+    # ### Step 3: Create txt files for trining
+    # ## Create txt Location files
+    # for file_type in file_types:
+    #     concatenate_txt_files(datasets,base_path,file_type)
+    # ### Step 4: Create YAML file
+    # ## Create global YAML file
+    # create_global_yaml(base_path)
+    # for dataset in datasets:
+    #     create_dataset_yaml(base_path, dataset)
+    # ### Full Dataset Training with Single Image Validation
     create_total_txt_files(datasets, base_path)
     create_total_yaml_files(datasets, base_path)
     
