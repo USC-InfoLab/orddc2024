@@ -159,7 +159,11 @@ python yolov8_train.py --dataset
 ```bash
 cd orddc2024/predictors/yolov5
 python train.py --device cpu --batch-size 16 --data global_train.yaml --img 640 --cfg models/yolov5n_GlobalAB.yaml --weights weights/yolov5n.pt --name yolov5n_640_16 --epochs 200 --optimizer SGD
+# Example (If you downloaded and preprocessed the dataset using dataset_download.py or DataPreprocessingGuide.ipynb):
+python train.py --device cpu --batch-size 16 --data global_train_dataset.yaml --img 640 --cfg models/yolov5n_GlobalAB.yaml --weights weights/yolov5n.pt --name yolov5n_640_16 --epochs 200 --optimizer SGD
 ```
+
+
 
 ### Batch Phase 1 Submission Script
 > This script is designed to generate CSV files for the **Phase 1 submission** using YOLOv8 and YOLOv10 models.
